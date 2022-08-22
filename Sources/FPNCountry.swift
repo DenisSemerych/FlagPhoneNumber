@@ -1,3 +1,5 @@
+// MARK: - Pay attention - to this to work properly all flags must be added in core project
+
 import UIKit
 
 public struct FPNCountry: Equatable {
@@ -12,11 +14,7 @@ public struct FPNCountry: Equatable {
 		self.phoneCode = phoneCode
 		self.code = FPNCountryCode(rawValue: code)!
 
-		if let flag = UIImage(named: code, in: Bundle.FlagIcons, compatibleWith: nil) {
-			self.flag = flag
-		} else {
-			self.flag = UIImage(named: "unknown", in: Bundle.FlagIcons, compatibleWith: nil)
-		}
+        self.flag = UIImage(named: code) ?? UIImage(named: "unknown")
 	}
 
 	static public func ==(lhs: FPNCountry, rhs: FPNCountry) -> Bool {
