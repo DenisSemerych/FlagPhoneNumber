@@ -3301,7 +3301,7 @@ static NSArray *GEO_MOBILE_COUNTRIES;
                         [NBMetadataHelper hasValue:firstMatchStringWithGroup] == NO);
 
     if (noTransform) {
-      transformedNumber = [numberStr substringFromIndex:firstMatchString.length];
+      transformedNumber = numberStr;
     } else {
       transformedNumber =
           [self replaceFirstStringByRegex:numberStr regex:prefixPattern withTemplate:transformRule];
